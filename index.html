@@ -11,7 +11,33 @@
             let choice = options[Math.floor(Math.random()*options.length)];
             return choice;
         }
-        console.log(getComputerChoice());
+        //console.log(getComputerChoice());
+        let playerSelection = prompt('Enter your choice!');
+        let computerSelection = getComputerChoice();
+        function roundOne(playerSelection,computerSelection){
+            if (computerSelection === 'Rock' && playerSelection.toLowerCase() === 'rock') {
+                return `It's a tie! Rock equals Rock!`;
+            } else if (computerSelection === 'Rock' && playerSelection.toLowerCase() === 'paper') {
+                return `You win! Paper beats Rock!`;
+            } else if (computerSelection === 'Rock' && playerSelection.toLowerCase() === 'scissors') {
+                return `You Lose! Rock beats Scissors!`;
+            } else if (computerSelection === 'Paper' && playerSelection.toLowerCase() === 'rock') {
+                return `You Lose! Paper beats Rock!`;
+            } else if (computerSelection === 'Paper' && playerSelection.toLowerCase() === 'paper') {
+                return `It's a tie! Paper equals Paper!`;
+            } else if (computerSelection === 'Paper' && playerSelection.toLowerCase() === 'scissors') {
+                return `You Win! Scissors beats Paper!`;
+            } else if (computerSelection === 'Scissors' && playerSelection.toLowerCase() === 'rock') {
+                return `You Win! Rock beats Scissors!`;
+            } else if (computerSelection === 'Scissors' && playerSelection.toLowerCase() === 'paper') {
+                return `You Lose! Scissors beats Paper!`;
+            } else if (computerSelection === 'Scissors' && playerSelection.toLowerCase() === 'scissors') {
+                return `It's a tie! Scissors equals Scissors!`;
+            } else {
+                return `Please enter a valid choice!`;
+            }
+        }
+        console.log(roundOne(playerSelection,computerSelection));
     </script>
 </body>
 </html>
