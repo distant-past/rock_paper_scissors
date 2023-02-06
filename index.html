@@ -6,7 +6,12 @@
 </head>
 <body>
     <script>
-        console.log("rockpaperscissors")
+        function getComputerChoice(randomChoice) {
+            let options = ['Rock', 'Paper', 'Scissors'];
+            let choice = options[Math.floor(Math.random()*options.length)];
+            return choice;
+        }
+        console.log(getComputerChoice());
     </script>
 </body>
 </html>
