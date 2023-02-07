@@ -12,32 +12,55 @@
             return choice;
         }
         //console.log(getComputerChoice());
-        let playerSelection = prompt('Enter your choice!');
-        let computerSelection = getComputerChoice();
+        let playerScore = 0;
+        let computerScore = 0;
         function roundOne(playerSelection,computerSelection){
             if (computerSelection === 'Rock' && playerSelection.toLowerCase() === 'rock') {
-                return `It's a tie! Rock equals Rock!`;
+                return `It's a tie! Rock equals Rock! Player score: ${playerScore}. Computer score: ${computerScore}.`;
             } else if (computerSelection === 'Rock' && playerSelection.toLowerCase() === 'paper') {
-                return `You win! Paper beats Rock!`;
+                playerScore += 1;
+                return `You Win! Paper beats Rock! Player score: ${playerScore}. Computer score: ${computerScore}.`;
             } else if (computerSelection === 'Rock' && playerSelection.toLowerCase() === 'scissors') {
-                return `You Lose! Rock beats Scissors!`;
+                computerScore += 1;
+                return `You Lose! Rock beats Scissors! Player score: ${playerScore}. Computer score: ${computerScore}.`;
             } else if (computerSelection === 'Paper' && playerSelection.toLowerCase() === 'rock') {
-                return `You Lose! Paper beats Rock!`;
+                computerScore += 1;
+                return `You Lose! Paper beats Rock! Player score: ${playerScore}. Computer score: ${computerScore}.`;
             } else if (computerSelection === 'Paper' && playerSelection.toLowerCase() === 'paper') {
-                return `It's a tie! Paper equals Paper!`;
+                return `It's a tie! Paper equals Paper! Player score: ${playerScore}. Computer score: ${computerScore}.`;
             } else if (computerSelection === 'Paper' && playerSelection.toLowerCase() === 'scissors') {
-                return `You Win! Scissors beats Paper!`;
+                playerScore += 1;
+                return `You Win! Scissors beats Paper! Player score: ${playerScore}. Computer score: ${computerScore}.`;
             } else if (computerSelection === 'Scissors' && playerSelection.toLowerCase() === 'rock') {
-                return `You Win! Rock beats Scissors!`;
+                playerScore += 1;
+                return `You Win! Rock beats Scissors! Player score: ${playerScore}. Computer score: ${computerScore}.`;
             } else if (computerSelection === 'Scissors' && playerSelection.toLowerCase() === 'paper') {
-                return `You Lose! Scissors beats Paper!`;
+                computerScore += 1;
+                return `You Lose! Scissors beats Paper! Player score: ${playerScore}. Computer score: ${computerScore}.`;
             } else if (computerSelection === 'Scissors' && playerSelection.toLowerCase() === 'scissors') {
-                return `It's a tie! Scissors equals Scissors!`;
+                return `It's a tie! Scissors equals Scissors! Player score: ${playerScore}. Computer score: ${computerScore}.`;
             } else {
-                return `Please enter a valid choice!`;
+                return `Please enter a valid answer next time!`;
             }
         }
-        console.log(roundOne(playerSelection,computerSelection));
+        //console.log(roundOne(playerSelection,computerSelection));
+
+        function game() {
+            for (let i = 0; i < 5; i++) {
+                let playerSelection = prompt('Enter your choice!');
+                const computerSelection = getComputerChoice();
+                console.log(roundOne(playerSelection,computerSelection));
+            }
+            if (playerScore > computerScore) {
+                    console.log(`Player Wins! Player score: ${playerScore}. Computer score: ${computerScore}.`);
+                } else if (playerScore < computerScore) {
+                    console.log(`Computer Wins! Player score: ${playerScore}. Computer score: ${computerScore}.`);
+                } else if (playerScore === computerScore) {
+                    console.log(`It's a tie! Player score: ${playerScore}. Computer score: ${computerScore}.`);
+                }
+        }
+
+        console.log(game());
     </script>
 </body>
 </html>
