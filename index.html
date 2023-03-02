@@ -5,13 +5,18 @@
     <title>Rock, Paper, Scissors</title>
 </head>
 <body>
+    <h3> Brutalist Rock, Paper, Scissors </h3>
+    <button id='rock' type = 'button' value ='rock'>Rock</button>
+    <button id='paper'  type = 'button' value ='paper'>Paper</button>
+    <button id = 'scissors' type = 'button' value ='scissors'>Scissors</button>
+    <br></br>
+    <div id='results'></div>
     <script>
         function getComputerChoice(randomChoice) {
             let options = ['Rock', 'Paper', 'Scissors'];
             let choice = options[Math.floor(Math.random()*options.length)];
             return choice;
         }
-        //console.log(getComputerChoice());
         let playerScore = 0;
         let computerScore = 0;
         function roundOne(playerSelection,computerSelection){
@@ -43,24 +48,53 @@
                 return `Please enter a valid answer next time!`;
             }
         }
-        //console.log(roundOne(playerSelection,computerSelection));
 
-        function game() {
-            for (let i = 0; i < 5; i++) {
-                let playerSelection = prompt('Enter your choice!');
-                const computerSelection = getComputerChoice();
-                console.log(roundOne(playerSelection,computerSelection));
+        const rock = document.querySelector('#rock');
+        rock.addEventListener('click', ()=> {
+            let playerSelection = rock.value;
+            const computerSelection = getComputerChoice();
+            if (playerScore < 5 && computerScore < 5) {
+                results.textContent = roundOne(playerSelection,computerSelection);
             }
-            if (playerScore > computerScore) {
-                    console.log(`Player Wins! Player score: ${playerScore}. Computer score: ${computerScore}.`);
+            if (playerScore == 5 || computerScore == 5) {
+                if (playerScore > computerScore) {
+                    results.textContent = (`Player Wins! Player score: ${playerScore}. Computer score: ${computerScore}.`);
                 } else if (playerScore < computerScore) {
-                    console.log(`Computer Wins! Player score: ${playerScore}. Computer score: ${computerScore}.`);
-                } else if (playerScore === computerScore) {
-                    console.log(`It's a tie! Player score: ${playerScore}. Computer score: ${computerScore}.`);
+                    results.textContent = (`Computer Wins! Player score: ${playerScore}. Computer score: ${computerScore}.`);
                 }
-        }
-
-        console.log(game());
+            }  
+        });
+        const paper = document.querySelector('#paper');
+        paper.addEventListener('click', ()=> {
+            let playerSelection = paper.value;
+            const computerSelection = getComputerChoice();
+            if (playerScore < 5 && computerScore < 5) {
+                results.textContent = roundOne(playerSelection,computerSelection);
+            }
+            if (playerScore == 5 || computerScore == 5) {
+                if (playerScore > computerScore) {
+                    results.textContent = (`Player Wins! Player score: ${playerScore}. Computer score: ${computerScore}.`);
+                } else if (playerScore < computerScore) {
+                    results.textContent = (`Computer Wins! Player score: ${playerScore}. Computer score: ${computerScore}.`);
+                }
+            }  
+        });
+        const scissors = document.querySelector('#scissors');
+        scissors.addEventListener('click', ()=> {
+            let playerSelection = scissors.value;
+            const computerSelection = getComputerChoice();
+            if (playerScore < 5 && computerScore < 5) {
+                results.textContent = roundOne(playerSelection,computerSelection);
+            }
+            if (playerScore == 5 || computerScore == 5) {
+                if (playerScore > computerScore) {
+                    results.textContent = (`Player Wins! Player score: ${playerScore}. Computer score: ${computerScore}.`);
+                } else if (playerScore < computerScore) {
+                    results.textContent = (`Computer Wins! Player score: ${playerScore}. Computer score: ${computerScore}.`);
+                }
+            }  
+        });
+        const results = document.querySelector('#results');
     </script>
 </body>
 </html>
